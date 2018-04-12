@@ -1,55 +1,8 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2"
-         *ngFor="let question of questions; let i = index">
 
-      <div *ngIf="ID==i">
-        <form>
-          <h4>QA:&nbsp;{{question.questionId}}.{{question.questionItem}}</h4>
-
-          <input type="radio"
-                 name="select"
-                 [value]="question.questionChoice1"
-                 (click)="onRadioClick(i,'A')"
-                 #choice1/>&nbsp;
-          <span>{{question.questionChoice1}}</span><br/>
-
-          <input type="radio"
-                 name="select"
-                 [value]="question.questionChoice2"
-                 (click)="onRadioClick(i,'B')"
-                 #choice2/>&nbsp;
-          <span>{{question.questionChoice2}}</span><br/>
-
-          <input type="radio"
-                 name="select"
-                 [value]="question.questionChoice3"
-                 (click)="onRadioClick(i,'C')"
-                 #choice3/>&nbsp;
-          <span>{{question.questionChoice3}}</span><br/>
-        </form>
-
-        <br/>
-        <button class="btn btn-danger" type="button" (click)="onReturn(i)">Return</button>
-        <button class="btn btn-success"
-                type="button"
-                (click)="onSelect(i)"
-                [disabled]="!radioChecked||i==9">Next
-        </button>
-        <button class="btn btn-primary" (click)="onSubmit()" *ngIf="i==9">Submit</button>
-      </div>
+  <app-questions></app-questions>
 
 
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-6">
-      <div *ngIf="showScore">
-        <h4>Your Score:&nbsp;{{sum}}</h4>
-      </div>
-
-    </div>
-  </div>
+  <app-score></app-score>
 </div>
 
